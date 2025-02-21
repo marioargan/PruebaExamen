@@ -14,9 +14,10 @@ public class SubMenuImplementacion implements SubMenuInterfaz {
 		System.out.println("3.MostrarCliente");
 		System.out.println("4.Menu Inicial");
 		System.out.println("==================");
-		
+		EmpleadoInterfaz menuEmpleado = new EmpleadoImplementacion();
 			switch (Inicio.opcionUsuario2 = Inicio.sc.nextByte()) {
 			case 1: {
+				menuEmpleado.validarCliente();
 				
 				break;
 			}

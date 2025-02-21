@@ -2,6 +2,7 @@ package servicios;
 
 public interface ClienteInterfaz {
 
-	void nuevoCliente();
-
+	public void nuevoCliente();
+	
+	public String validarDni(String dni);
 }

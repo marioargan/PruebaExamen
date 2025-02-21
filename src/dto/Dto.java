@@ -12,7 +12,7 @@ public class Dto {
 	String nombreCompleto;
 	String email;
 	String contraseña;
-	boolean esValido;
+	boolean esValido = false;
 	
 
 	
@@ -78,6 +78,8 @@ public class Dto {
 	public String toString() {
 		return "DNI: ".concat(dni).concat("\n").concat("NOMBRE: ").concat(apellido1).concat(" ").concat(apellido2).concat(", ").concat(nombre).concat("\n").concat("ESTADO VALIDACION: ")+esValido+"\n".concat("%%%%%%%%%%%%%");
 	}
-	
+	public String toStringValidarDni() {
+		return "DNI: ".concat(dni).concat("\n").concat("%%%%%%%%%%%%%");
+	}
 
 }
