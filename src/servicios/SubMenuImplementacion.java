@@ -22,11 +22,11 @@ public class SubMenuImplementacion implements SubMenuInterfaz {
 				break;
 			}
 			case 2: {
-				
+				menuEmpleado.borrarCliente();
 				break;
 			}
 			case 3: {
-				
+				menuEmpleado.mostrarClientes();
 				break;
 			}	
 			case 4: {
@@ -43,7 +43,7 @@ public class SubMenuImplementacion implements SubMenuInterfaz {
 	@Override
 	public void menuCliente() {
 		
-		
+		ClienteInterfaz registroCliente = new ClienteImplementacion();
 			System.out.println("====Cliente====");
 			System.out.println("1.Registro Cliente");
 			System.out.println("2.Acceso Cliente");
@@ -51,12 +51,12 @@ public class SubMenuImplementacion implements SubMenuInterfaz {
 			System.out.println("==================");
 			switch (Inicio.opcionUsuario2 = Inicio.sc.nextByte()) {
 			case 1: {
-				ClienteInterfaz registroCliente = new ClienteImplementacion();
+				
 				registroCliente.nuevoCliente();
 				break;
 			}
 			case 2: {
-				
+				registroCliente.accederCliente();
 				break;
 				
 			}

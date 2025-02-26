@@ -31,4 +31,58 @@ public class EmpleadoImplementacion implements EmpleadoInterfaz {
 		}
 		
 	}
+	@Override
+	public void borrarCliente() {
+		ClienteInterfaz clienteInterfaz = new ClienteImplementacion();
+		boolean dniValidado=false;
+		boolean clienteBorrar=false;
+		Dto clienteAuxiliar = new Dto();
+		for ( Dto cliente : Inicio.clientes) {
+			System.out.println(cliente.toString());
+		}
+		do {
+			System.out.println("Ingrese su DNI: ");
+			String dni = Inicio.sc.next();
+			do {
+				
+				String letraDni = clienteInterfaz.validarDni(dni);
+				if (dni.substring(8).equalsIgnoreCase(letraDni)&&dni.length()<=9) {
+					System.out.println("DNI es correcto");
+					dniValidado= true;
+					break;
+				}
+				else {
+					System.out.println("El DNI no es correcto");
+				}
+				
+			} while (!dniValidado);
+			
+			for ( Dto cliente : Inicio.clientes) {
+				if (cliente.getDni().equals(dni)) {
+					clienteBorrar= true;
+					clienteAuxiliar=cliente;
+					
+					
+				}
+				
+			}
+			
+		} while (!clienteBorrar);
+		Inicio.clientes.remove(clienteAuxiliar);
+	}
+	@Override
+	public void mostrarClientes() {
+		
+		/*for ( Dto cliente : Inicio.clientes) {
+			if (cliente.isEsValido()) {
+				System.out.println(cliente.toString());;
+				4
+			}
+		}*/
+		
+		for (Dto cliente : Inicio.clientes) {
+			System.out.println(cliente.toString());
+		}
+	}
 }
+

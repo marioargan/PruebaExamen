@@ -12,6 +12,10 @@ public class ClienteImplementacion implements ClienteInterfaz {
 		System.out.println("Ingrese su nombre completo con espacios: ");
 		Inicio.sc.nextLine();
 		registroDto.setNombreCompleto(Inicio.sc.nextLine());
+		System.out.println("Ingrese su contraseña privada: ");
+		registroDto.setContraseña(Inicio.sc.next());
+		System.out.println("Ingrese su correo electronico: ");
+		registroDto.setEmail(Inicio.sc.next());
 		registroDto.setIdCliente(idAutoNumerico());
 		Inicio.clientes.add(registroDto);
 		String[] fragmento = registroDto.getNombreCompleto().split(" ");
@@ -71,4 +75,35 @@ public class ClienteImplementacion implements ClienteInterfaz {
 		 
 		
 	}  
+	@Override
+	public void accederCliente() {
+		byte contador = 0;
+		do {
+			contador++;
+			System.out.println("Ingrese su correo electronico: ");
+			String email=Inicio.sc.next();
+			System.out.println("Ingrese su contraseña: ");
+			String contraseña=Inicio.sc.next();
+			
+			for ( Dto cliente : Inicio.clientes) {
+				
+				if (cliente.getEmail().equals(email)&&cliente.getContraseña().equals(contraseña)&&cliente.isEsValido()) {
+					System.out.println("INICIO DE SESION CORRECTO");
+					contador=3;
+					break;
+		
+				}
+				
+				else {
+						System.out.println("El email o la contraseña son incorrectas");
+						
+				}
+				
+			} 	
+			if (contador==3) {
+				break;
+			}	
+		}while (contador<=3);
+		
+	}
 }
